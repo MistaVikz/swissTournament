@@ -125,6 +125,31 @@ def testPairings():
     print "8. After one match, players with one win are paired."
 
 
+def testPairings2():
+    # Test the pairings after recording three matches.
+    deleteMatches()
+    deletePlayers()
+    registerPlayer("Twilight Sparkle")
+    registerPlayer("Fluttershy")
+    registerPlayer("Applejack")
+    registerPlayer("Pinkie Pie")
+    registerPlayer("John Doe")
+    registerPlayer("Frodo")
+    standings = playerStandings()
+    [id1, id2, id3, id4, id5, id6] = [row[0] for row in standings]
+    reportMatch(id1, id2)
+    reportMatch(id3, id4)
+    reportMatch(id5, id6)
+    pairings = swissPairings()
+    print "Pairings follow:"
+    print pairings
+    print "Pairings complete."
+    if len(pairings) != 3:
+        raise ValueError(
+            "For six players, swissPairings should return three pairs.")
+    print "8a.  Test complete."
+
+
 if __name__ == '__main__':
     testDeleteMatches()
     testDelete()
@@ -134,6 +159,7 @@ if __name__ == '__main__':
     testStandingsBeforeMatches()
     testReportMatches()
     testPairings()
+    testPairings2()
     print "Success!  All tests pass!"
 
 

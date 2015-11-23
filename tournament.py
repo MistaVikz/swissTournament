@@ -126,19 +126,11 @@ def swissPairings():
 
         currentRound.pop(0)
 
-        i = 0
-        isFound = False
-
-        """ Match a player with the same number of wins and remove that player
-        from the standings. """
-        while i <= len(currentRound) and isFound is False:
-            if currentRound[i][2] == num_wins:
-
-                sPair.append([id_one, name_one, currentRound[i][0],
-                             currentRound[i][1]])
-                isFound = True
-                currentRound.pop(i)
-            i = i + 1
+        """ Match a player with the next player in the standings """
+        sPair.append([id_one, name_one, currentRound[0][0], currentRound[0][1]])
+        currentRound.pop(0)
+        
+    conn.close()
     return sPair
 
-    conn.close()
+   
