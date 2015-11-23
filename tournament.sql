@@ -1,11 +1,6 @@
 -- Table definitions for the tournament project.
---
--- Put your SQL 'create table' statements in this file; also 'create view'
--- statements if you choose to use it.
---
--- You can write comments in this file by starting them with two dashes, like
--- these lines here.
 
+-- Table contains fields relating to specific players in the tournament
 CREATE TABLE Players
 ( player_id serial primary key,
   player_name varchar(50) NOT NULL,
@@ -13,6 +8,7 @@ CREATE TABLE Players
   num_matches Integer DEFAULT 0
 );
 
+-- Table identifies the winners/losers of each match in the tournament
 CREATE TABLE Matches
 ( winner_id Integer NOT NULL,
   loser_id Integer NOT NULL,
@@ -25,6 +21,7 @@ CREATE TABLE Matches
     REFERENCES Players(player_id)
 );
 
+-- View lists all players in the tournament ordered by the number of wins
 CREATE VIEW Standings AS
   SELECT player_id, player_name, num_wins, num_matches 
   FROM Players 

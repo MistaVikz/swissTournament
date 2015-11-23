@@ -118,7 +118,7 @@ def swissPairings():
     currentRound = c.fetchall()
 
     """ Pick the player from Standings with the most wins. Remove from the list.
-    Loop until the list is empty. """
+    Loops until the list is empty. """
     while len(currentRound) > 0:
         id_one = currentRound[0][0]
         name_one = currentRound[0][1]
@@ -126,7 +126,7 @@ def swissPairings():
 
         currentRound.pop(0)
 
-        """ Match a player with the next player in the standings """
+        """ Match the player with the next player in the standings """
         sPair.append([id_one, name_one, currentRound[0][0], currentRound[0][1]])
         currentRound.pop(0)
         
