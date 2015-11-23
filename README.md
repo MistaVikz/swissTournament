@@ -69,7 +69,14 @@ Supported Test Cases (in tournament_test.py):
       Description:  Removes all the matches and player records, registers 4 new players,  
                     and retrieves the current standings. Then records two matches and runs the swiss  
                     pairing algorithm. Then tests that the algorithm returns two pairs, with the players  
-                    that have one win paired together.  
+                    that have one win paired together.
+
+  - testPairings2:  
+      tournament.py functions:  deleteMatches, deletePlayers, registerPlayers,   
+                                playerStandings, reportMatch, swissPairing   
+      Description:  Removes all the matches and player records, registers 6 new players,  
+                    and retrieves the current standings. Then records two matches and runs the swiss  
+                    pairing algorithm. Then tests that the algorithm returns 3 pairs.
   
 Limitations:  
   The database schema supports a single swiss tournament with a even number of players. Does not support  
